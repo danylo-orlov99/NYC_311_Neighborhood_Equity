@@ -1,0 +1,16 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Local environment variables / credentials
+.env
+*.env
+
+# Raw data should not be committed
+data/raw/*
+!data/raw/.gitkeep
+
+# OS/editor files
+.DS_Store
+.vscode/
