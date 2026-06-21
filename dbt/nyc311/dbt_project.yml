@@ -4,6 +4,7 @@
 # name or the intended use of these models
 name: 'nyc311'
 version: '1.0.0'
+config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'nyc311'
@@ -31,6 +32,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   nyc311:
-    # Config indicated by + and applies to all files under models/example/
-    example:
+    staging:
+      +schema: staging
       +materialized: view
+
+    marts:
+      +schema: marts
+      +materialized: table

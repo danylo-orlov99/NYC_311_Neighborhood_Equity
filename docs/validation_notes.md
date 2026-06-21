@@ -107,3 +107,21 @@ Notes:
 
 - This mart is based on a capped 5,000-row sample, not the full January 2025 dataset.
 - Early patterns are not representative of the full month because the sample only covers the first ~11 hours of January 1.
+
+## dbt dataset configuration
+
+Configured dbt model outputs by layer:
+
+- Raw source tables are loaded by Python into `nyc311_raw`.
+- dbt staging models are built into `nyc311_staging`.
+- dbt mart models are built into `nyc311_marts`.
+
+Current dbt objects:
+
+- `nyc-311-equity.nyc311_staging.stg_311_service_requests`
+- `nyc-311-equity.nyc311_marts.mart_311_complaint_summary`
+
+Validation:
+
+- Staging model reconciles to 5,000 source rows.
+- Mart model reconciles to 5,000 total requests using `SUM(request_count)`.
