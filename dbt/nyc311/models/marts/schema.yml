@@ -1,0 +1,59 @@
+version: 2
+
+models:
+  - name: mart_311_complaint_summary
+    description: "Dashboard-ready summary of NYC 311 service requests by date, hour, borough, agency, complaint type, and status."
+    columns:
+      - name: created_date
+        description: "Date when the service request was created."
+        tests:
+          - not_null
+
+      - name: created_hour
+        description: "Hour when the service request was created."
+        tests:
+          - not_null
+
+      - name: borough
+        description: "Standardized borough name."
+
+      - name: agency
+        description: "Responding agency acronym."
+
+      - name: agency_name
+        description: "Full responding agency name."
+
+      - name: complaint_type
+        description: "Broad 311 problem or complaint type."
+
+      - name: status
+        description: "Current service request status."
+
+      - name: request_count
+        description: "Number of service requests in the group."
+        tests:
+          - not_null
+
+      - name: closed_request_count
+        description: "Number of closed service requests in the group."
+
+      - name: open_request_count
+        description: "Number of non-closed service requests in the group."
+
+      - name: late_request_count
+        description: "Number of closed requests where closed datetime was after due datetime."
+
+      - name: valid_coordinate_count
+        description: "Number of requests with valid latitude and longitude within rough NYC bounds."
+
+      - name: avg_days_to_close
+        description: "Average number of days between created datetime and closed datetime."
+
+      - name: median_days_to_close
+        description: "Approximate median number of days between created datetime and closed datetime."
+
+      - name: closed_request_share
+        description: "Share of requests in the group that are closed."
+
+      - name: late_closed_request_share
+        description: "Share of closed requests in the group that were closed after the due datetime."

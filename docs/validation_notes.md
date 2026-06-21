@@ -91,3 +91,19 @@
 - Create a days_to_close metric only when closed_date is present and valid.
 - Create a boolean has_valid_coordinates flag.
 - Do not filter rows out of the staging model yet unless they are structurally invalid.
+
+## First dbt mart validation
+
+Model: `mart_311_complaint_summary`
+
+Checks performed:
+
+- Confirmed mart row counts reconcile to the 5,000-row staging sample.
+- Confirmed `SUM(request_count)` equals 5,000.
+- Confirmed created hour coverage matches the raw/staging sample window.
+- Created first dashboard-ready summary table grouped by date, hour, borough, agency, complaint type, and status.
+
+Notes:
+
+- This mart is based on a capped 5,000-row sample, not the full January 2025 dataset.
+- Early patterns are not representative of the full month because the sample only covers the first ~11 hours of January 1.
