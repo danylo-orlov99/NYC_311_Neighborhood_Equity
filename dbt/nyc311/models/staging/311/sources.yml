@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: nyc311_raw
+    database: nyc-311-equity
+    schema: nyc311_raw
+    tables:
+      - name: service_requests_2025_01_sample
+        description: "Raw sample of NYC 311 service requests loaded from local NDJSON into BigQuery."
+        columns:
+          - name: unique_key
+            description: "Unique identifier of the service request."
+            tests:
+              - not_null
+              - unique
+          - name: created_date
+            description: "Raw service request created datetime from NYC Open Data."
+            tests:
+              - not_null
+          - name: complaint_type
+            description: "Broad 311 problem or complaint type."
+          - name: borough
+            description: "Borough provided by geovalidation."

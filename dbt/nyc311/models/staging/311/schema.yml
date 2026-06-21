@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: stg_311_service_requests
+    description: "Cleaned staging model for NYC 311 service requests."
+    columns:
+      - name: unique_key
+        description: "Unique identifier of the service request."
+        tests:
+          - not_null
+          - unique
+
+      - name: created_datetime
+        description: "Parsed datetime when the service request was created."
+        tests:
+          - not_null
+
+      - name: complaint_type
+        description: "Broad 311 problem or complaint type."
+
+      - name: borough
+        description: "Standardized uppercase borough name."
+
+      - name: is_closed
+        description: "Boolean flag indicating whether the request has a closed datetime."
+
+      - name: days_to_close
+        description: "Number of days between created datetime and closed datetime, when valid."
+
+      - name: has_valid_coordinates
+        description: "Boolean flag indicating whether latitude and longitude are present and roughly within NYC bounds."
