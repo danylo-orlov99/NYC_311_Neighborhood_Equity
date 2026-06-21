@@ -1,0 +1,93 @@
+# Raw Data Validation Notes
+
+## Table validated
+
+`nyc-311-equity.nyc311_raw.service_requests_2025_01_sample`
+
+## Load summary
+
+- Source file: nyc-311-equity.nyc311_raw.service_requests_2025_01_sample
+- Number of rows in local NDJSON: 5000
+- Number of rows loaded to BigQuery: 5000
+- Number of distinct unique keys: 5000
+- Duplicate unique key rows: 0
+
+## Date coverage
+
+- Minimum created datetime: 2025-01-01T00:00:12
+- Maximum created datetime: 2025-01-01T10:59:47
+- Notes: Only the first 11 hours of January 1 are covered within these 5000 rows
+
+## Missingness observations
+
+- Missing closed_date: 27
+- Missing latitude/longitude: 32
+- Missing borough: 0
+- Missing community_board: 0
+- Missing council_district: 46
+- Notes: complaint_type, agency, borough, and created_date are not missing
+
+## Common values
+
+### Top statuses
+
+- 1 Closed      4987 99.74
+- 2 In Progress 6    0.12
+- 3 Pending     3    0.06
+- 4 Assigned    2    0.04
+- 5 Open        1    0.02
+- 6 Started     1    0.02
+
+### Top boroughs
+
+- 1 BRONX	        2367 47.34
+- 2 BROOKLYN	    998	 19.96
+- 3 QUEENS	        892	 17.84
+- 4 MANHATTAN	    608	 12.16
+- 5 STATEN ISLAND	132	2.64
+- 6 Unspecified	3	0.06
+
+### Top agencies
+
+- 1	New York City Police Department	4183	83.66
+- 2	Department of Housing Preservation and Development	387	7.74
+- 3	Department of Transportation	149	2.98
+- 4	Department of Sanitation	98	1.96
+- 5	Department of Environmental Protection	63	1.26
+- 6	Department of Health and Mental Hygiene	32	0.64
+- 7	Department of Buildings	25	0.5
+- 8	Department of Homeless Services	22	0.44
+- 9	Department of Parks and Recreation	18	0.36
+- 10	Taxi and Limousine Commission	17	0.34
+- 11	Department of Consumer and Worker Protection	3	0.06
+- 12	Economic Development Corporation	3	0.06
+
+### Top complaint types
+
+- 1	Noise - Residential	2712	54.24
+- 2	Illegal Parking	417	8.34
+- 3	Noise - Street/Sidewalk	287	5.74
+- 4	HEAT/HOT WATER	216	4.32
+- 5	Blocked Driveway	215	4.3
+- 6	Noise - Commercial	211	4.22
+- 7	Illegal Fireworks	206	4.12
+- 8	Street Condition	81	1.62
+- 9	Traffic Signal Condition	43	0.86
+- 10	UNSANITARY CONDITION	42	0.84
+
+## Data quality flags
+
+- Closed before created: 0
+- Due before created: 0
+- Unparseable dates: 0
+- Coordinates outside rough NYC bounds: 0
+- Notes: All looks good
+
+## Decisions for dbt modeling
+
+- Keep raw fields as strings.
+- Parse created_date, closed_date, due_date, and resolution_action_updated_date in staging.
+- Create a boolean is_closed flag.
+- Create a days_to_close metric only when closed_date is present and valid.
+- Create a boolean has_valid_coordinates flag.
+- Do not filter rows out of the staging model yet unless they are structurally invalid.
