@@ -5,8 +5,8 @@ sources:
     database: nyc-311-equity
     schema: nyc311_raw
     tables:
-      - name: service_requests_2025_01_sample
-        description: "Raw sample of NYC 311 service requests loaded from local NDJSON into BigQuery."
+      - name: service_requests_2025_01
+        description: "Raw NYC 311 service requests for January 2025 loaded from local NDJSON into BigQuery."
         columns:
           - name: unique_key
             description: "Unique identifier of the service request."

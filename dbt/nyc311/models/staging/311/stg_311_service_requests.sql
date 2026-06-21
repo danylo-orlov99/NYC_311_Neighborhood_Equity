@@ -1,6 +1,6 @@
 WITH source AS (
     SELECT *
-    FROM {{ source('nyc311_raw', 'service_requests_2025_01_sample') }}
+    FROM {{ source('nyc311_raw', 'service_requests_2025_01') }}
 ),
 
 renamed AS (

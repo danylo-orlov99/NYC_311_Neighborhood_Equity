@@ -125,3 +125,43 @@ Validation:
 
 - Staging model reconciles to 5,000 source rows.
 - Mart model reconciles to 5,000 total requests using `SUM(request_count)`.
+
+## Table validated
+
+`nyc-311-equity.nyc311_raw.service_requests_2025_01_full`
+
+## Load summary
+
+- Source file: nyc-311-equity.nyc311_raw.service_requests_2025_01_full
+- Number of rows in local NDJSON: 348180
+- Number of rows loaded to BigQuery: 348180
+- Number of distinct unique keys: 348180
+- Duplicate unique key rows: 0
+- min_created_date: 2025-01-01T00:00:12.000
+- max_created_date: 2025-01-31T23:59:48.000
+- rows_missing_closed_date: 2693
+- rows_missing_coordinates: 3105
+
+## dbt reconciliation:
+
+- Staging row count: 348180
+- Mart `SUM(request_count)`: 348180
+- dbt tests passed: yes/no: yes
+
+## Notes:
+
+- This table replaces the earlier 5,000-row sample for modeling.
+- The 5,000-row sample was useful for pipeline testing, but all dbt models now point to the full January 2025 raw table.
+
+
+
+
+
+
+
+
+
+
+
+
+
