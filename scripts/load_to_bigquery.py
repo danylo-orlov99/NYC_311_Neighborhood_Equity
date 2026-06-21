@@ -142,7 +142,7 @@ def get_write_disposition(write_mode: str) -> str:
 
     BigQuery calls this a write disposition.
 
-    For early testing, truncate is useful because you can rerun the script
+    For early testing, truncate is useful because we can rerun the script
     repeatedly and get the same table instead of accidentally duplicating rows.
     """
     if write_mode == "truncate":
@@ -308,8 +308,8 @@ def main() -> int:
 
     write_disposition = get_write_disposition(args.write_mode)
 
-    # This client uses your local Application Default Credentials.
-    # You already created those with:
+    # This client uses our local Application Default Credentials.
+    # We already created those with:
     #   gcloud.cmd auth application-default login
     client = bigquery.Client(project=args.project_id)
 
