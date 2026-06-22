@@ -153,6 +153,26 @@ Validation:
 - This table replaces the earlier 5,000-row sample for modeling.
 - The 5,000-row sample was useful for pipeline testing, but all dbt models now point to the full January 2025 raw table.
 
+## Dashboard mart expansion
+
+Created three additional dbt mart models:
+
+- `nyc-311-equity.nyc311_marts.mart_311_daily_borough_summary`
+- `nyc-311-equity.nyc311_marts.mart_311_complaint_type_summary`
+- `nyc-311-equity.nyc311_marts.mart_311_agency_performance`
+
+Validation:
+
+- `mart_311_daily_borough_summary` reconciles to 348,180 total requests.
+- `mart_311_complaint_type_summary` reconciles to 348,180 total requests.
+- `mart_311_agency_performance` reconciles to 348,180 total requests.
+
+Purpose:
+
+- Daily borough summary supports time-series and borough comparison visuals.
+- Complaint type summary supports top issue and response-time visuals.
+- Agency performance summary supports operational performance visuals.
+
 
 
 

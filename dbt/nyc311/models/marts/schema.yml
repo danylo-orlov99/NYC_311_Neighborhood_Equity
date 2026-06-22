@@ -57,3 +57,99 @@ models:
 
       - name: late_closed_request_share
         description: "Share of closed requests in the group that were closed after the due datetime."
+        
+  - name: mart_311_daily_borough_summary
+    description: "Daily summary of NYC 311 service requests by borough."
+    columns:
+      - name: created_date
+        description: "Date when service requests were created."
+        tests:
+          - not_null
+
+      - name: borough
+        description: "Standardized borough name."
+
+      - name: request_count
+        description: "Number of service requests."
+        tests:
+          - not_null
+
+      - name: closed_request_count
+        description: "Number of closed service requests."
+
+      - name: open_request_count
+        description: "Number of non-closed service requests."
+
+      - name: late_request_count
+        description: "Number of closed requests where closed datetime was after due datetime."
+
+      - name: median_days_to_close
+        description: "Approximate median number of days between created datetime and closed datetime."
+
+      - name: p90_days_to_close
+        description: "Approximate 90th percentile days to close."
+
+      - name: closed_request_share
+        description: "Share of requests that are closed."
+
+      - name: late_closed_request_share
+        description: "Share of closed requests that were closed late."
+
+  - name: mart_311_complaint_type_summary
+    description: "Summary of NYC 311 service request volume and closure metrics by complaint type."
+    columns:
+      - name: complaint_type
+        description: "Broad 311 problem or complaint type."
+        tests:
+          - not_null
+
+      - name: request_count
+        description: "Number of service requests."
+        tests:
+          - not_null
+
+      - name: request_share
+        description: "Share of all January 2025 requests represented by this complaint type."
+
+      - name: median_days_to_close
+        description: "Approximate median number of days between created datetime and closed datetime."
+
+      - name: p90_days_to_close
+        description: "Approximate 90th percentile days to close."
+
+      - name: closed_request_share
+        description: "Share of requests that are closed."
+
+      - name: late_closed_request_share
+        description: "Share of closed requests that were closed late."
+
+  - name: mart_311_agency_performance
+    description: "Summary of NYC 311 service request volume and closure metrics by responding agency."
+    columns:
+      - name: agency
+        description: "Responding agency acronym."
+        tests:
+          - not_null
+
+      - name: agency_name
+        description: "Full responding agency name."
+
+      - name: request_count
+        description: "Number of service requests."
+        tests:
+          - not_null
+
+      - name: request_share
+        description: "Share of all January 2025 requests handled by this agency."
+
+      - name: median_days_to_close
+        description: "Approximate median number of days between created datetime and closed datetime."
+
+      - name: p90_days_to_close
+        description: "Approximate 90th percentile days to close."
+
+      - name: closed_request_share
+        description: "Share of requests that are closed."
+
+      - name: late_closed_request_share
+        description: "Share of closed requests that were closed late."
