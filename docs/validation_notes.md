@@ -173,7 +173,29 @@ Purpose:
 - Complaint type summary supports top issue and response-time visuals.
 - Agency performance summary supports operational performance visuals.
 
+## dbt mart data quality tests
 
+Added custom dbt singular tests to confirm that dashboard marts reconcile to the staging model.
+
+Tests added:
+
+- `assert_daily_borough_summary_reconciles`
+- `assert_complaint_type_summary_reconciles`
+- `assert_agency_performance_reconciles`
+- `assert_no_negative_request_metrics`
+
+Validation logic:
+
+- `SUM(request_count)` in each mart must equal the row count in `stg_311_service_requests`.
+- Key request count metrics must not be negative.
+
+Result:
+
+- Full January 2025 staging row count: 348,180
+- Daily borough mart reconciles to staging.
+- Complaint type mart reconciles to staging.
+- Agency performance mart reconciles to staging.
+- No negative request metrics found.
 
 
 
