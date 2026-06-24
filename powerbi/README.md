@@ -31,3 +31,14 @@ Includes:
 ## Notes
 
 The current dashboard uses January 2025 NYC 311 service requests only.
+
+### Complaint Type Analysis
+
+Includes:
+
+- Total requests by complaint type
+- Closed and open request counts
+- Top complaint types by volume
+- Complaint types with longer median closure times
+- Open requests by complaint type
+- Complaint type detail table
