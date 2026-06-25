@@ -42,3 +42,17 @@ Includes:
 - Complaint types with longer median closure times
 - Open requests by complaint type
 - Complaint type detail table
+
+### Agency Performance
+
+Includes:
+
+- Request volume by responding agency
+- Closed and open request counts by agency
+- Median days to close by agency
+- 90th percentile days to close by agency
+- Agency detail table with request share and closure metrics
+
+Interpretation note:
+
+Agency-level response metrics are descriptive and should not be interpreted as causal performance comparisons because agencies handle different types of service requests.
