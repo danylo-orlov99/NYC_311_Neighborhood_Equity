@@ -197,6 +197,32 @@ Result:
 - Agency performance mart reconciles to staging.
 - No negative request metrics found.
 
+## Daily geography complaint mart
+
+Created `mart_311_daily_geography_complaint_summary` to support the redesigned Option A dashboard structure.
+
+Model grain:
+
+- `created_date`
+- `borough`
+- `council_district`
+- `community_board`
+- `agency`
+- `agency_name`
+- `complaint_type`
+
+Purpose:
+
+- Supports geography-based filtering.
+- Supports complaint-type trends over time.
+- Supports date, borough, council district, community board, agency, and complaint type slicers.
+- Provides a bridge between the planned Geography Explorer and Trend Explorer dashboard pages.
+
+Validation:
+
+- Staging row count: 348,180
+- Mart `SUM(request_count)`: 348,180
+- Reconciliation test added: `assert_daily_geography_complaint_summary_reconciles`
 
 
 

@@ -56,3 +56,17 @@ Includes:
 Interpretation note:
 
 Agency-level response metrics are descriptive and should not be interpreted as causal performance comparisons because agencies handle different types of service requests.
+
+### Borough Trend Detail
+
+Includes:
+
+- Daily 311 request trends by borough
+- Daily median days to close by borough
+- Total requests by borough
+- Daily request count matrix
+- Borough and date range slicers
+
+Interpretation note:
+
+Borough-level comparisons are descriptive and are not population-adjusted. Future versions should add ACS population denominators and request rates per 10,000 residents.
